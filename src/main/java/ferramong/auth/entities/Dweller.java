@@ -1,11 +1,11 @@
 package ferramong.auth.entities;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 /*
  * Entity
@@ -15,6 +15,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Builder
 public class Dweller implements Serializable {
 
     @Id
@@ -36,7 +37,7 @@ public class Dweller implements Serializable {
     @Column(nullable = false)
     private String secretAnswer;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "dweller_id")
-    private List<Token> tokens;
+    private Token token;
 }
