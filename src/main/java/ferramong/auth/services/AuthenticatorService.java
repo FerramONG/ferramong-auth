@@ -53,6 +53,7 @@ public class AuthenticatorService {
 
     public LoginReponseDTO login(LoginDTO login) {
         Optional<Dweller> dwellerOpt = dwellerRepository.findByCpfAndPassword(login.getCpf(), login.getPassword());
+
         if(dwellerOpt.isPresent()) {
             Dweller dweller = dwellerOpt.get();
             Token token = Token.builder()

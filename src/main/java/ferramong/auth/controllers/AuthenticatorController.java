@@ -63,7 +63,7 @@ public class AuthenticatorController {
     )
     public ResponseEntity<LoginReponseDTO> login(@RequestBody LoginDTO loginDTO){
         LoginReponseDTO response = authenticatorService.login(loginDTO);
-        if(!response.getToken().isBlank()) {
+        if(response.getToken().isBlank()) {
             return ResponseEntity.badRequest().build();
         } else {
             return ResponseEntity.ok().body(response);

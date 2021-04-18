@@ -20,19 +20,16 @@ import ferramong.auth.dtos.ResetPasswordDTO;
 import ferramong.auth.dtos.SignUpDTO;
 import ferramong.auth.entities.Dweller;
 import ferramong.auth.services.AccountManagerService;
-import lombok.AllArgsConstructor;
 
 @RestController
 @CrossOrigin(origins = CorsConfiguration.ALL, methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,
         RequestMethod.DELETE })
-@AllArgsConstructor
 public class AccountManagerController {
-
     @Autowired
     private AccountManagerService accountManagerService;
 
     @PostMapping(path = "/accountManager/signUp", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Dweller> login(@RequestBody SignUpDTO signUpDTO) {
+    public ResponseEntity<Dweller> signUP(@RequestBody SignUpDTO signUpDTO) {
         if (accountManagerService.signUp(signUpDTO)) {
             return ResponseEntity.accepted().build();
         } else {
@@ -50,14 +47,15 @@ public class AccountManagerController {
         }
     }
 
-    @PostMapping(path = "/accountManager/signUp", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Dweller> login(@RequestBody ResetPasswordDTO resetPasswordDTO) {
+    @PostMapping(path = "/accountManager/resetPassword", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Dweller> resetPassword(@RequestBody ResetPasswordDTO resetPasswordDTO) {
         if (accountManagerService.resetPassword(resetPasswordDTO)) {
             return ResponseEntity.accepted().build();
         } else {
             return ResponseEntity.badRequest().build();
         }
     }
+
 
     @GetMapping("/accountManager/getDweller/id/{id}")
     public ResponseEntity<Dweller> getDwellerById(@PathVariable("id") @NotBlank Long id) {
@@ -71,7 +69,7 @@ public class AccountManagerController {
     }
 
     @GetMapping("/accountManager/getDweller/name/{name}")
-    public ResponseEntity<Dweller> getDwellerById(@PathVariable("name") @NotBlank String name) {
+    public ResponseEntity<Dweller> getDwellerByName(@PathVariable("name") @NotBlank String name) {
         Optional<Dweller> dweller = accountManagerService.getDwellerByName(name);
 
         if (dweller.isPresent()) {

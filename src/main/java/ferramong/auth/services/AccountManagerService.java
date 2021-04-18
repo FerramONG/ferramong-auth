@@ -2,8 +2,8 @@ package ferramong.auth.services;
 
 import java.util.Optional;
 
-import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ferramong.auth.dtos.ResetPasswordDTO;
 import ferramong.auth.dtos.SignUpDTO;

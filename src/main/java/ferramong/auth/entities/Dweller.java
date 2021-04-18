@@ -1,8 +1,6 @@
 package ferramong.auth.entities;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,6 +14,8 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Dweller implements Serializable {
 
     @Id
