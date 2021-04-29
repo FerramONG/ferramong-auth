@@ -15,7 +15,7 @@
 <hr />
 
 ## ❇ Introduction
-This source code is a webservice that is used to manage and manipulate the amount of credit that each user has, in addiction to adding or removing the user's credits.
+This source code is a webservice that is used to authenticate and registrate of users, in addition, it also generates and validates session tokens.
 
 ## ❓ How to use
 See [here](https://ferramong-auth.herokuapp.com/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config) OpenAPI doc.
@@ -30,7 +30,7 @@ Details about each version are documented in the [releases section](https://gith
 #### FerramONG architecture
 ![global-schema](https://raw.githubusercontent.com/FerramONG/ferramong-auth/master/docs/img/schemas/architecture.png?raw=true)
 
-#### Creditools class diagram
+#### Auth class diagram
 ![class-diagram](https://raw.githubusercontent.com/FerramONG/ferramong-auth/master/docs/img/diagrams/class-diagram.png?raw=true)
 
 ## 📁 Files
