@@ -38,6 +38,6 @@ public class Dweller implements Serializable {
     private String secretAnswer;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "dweller_id")
+    @JoinColumn(name = "token_id", referencedColumnName = "id")
     private Token token;
 }
